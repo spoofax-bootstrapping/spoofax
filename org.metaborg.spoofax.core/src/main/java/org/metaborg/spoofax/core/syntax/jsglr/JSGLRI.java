@@ -130,7 +130,7 @@ public class JSGLRI implements IParser<IStrategoTerm> {
                 throw e;
             }
         } catch(StartSymbolException e) {
-            result = (IStrategoTerm) parser.parse(text, filename, null, false, cursorLocation);
+            throw e;
         }
         return result;
     }
