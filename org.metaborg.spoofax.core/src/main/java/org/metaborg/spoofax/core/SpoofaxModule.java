@@ -33,12 +33,7 @@ import org.metaborg.spoofax.core.resource.ResourceService;
 import org.metaborg.spoofax.core.stratego.IStrategoRuntimeService;
 import org.metaborg.spoofax.core.stratego.StrategoLocalPath;
 import org.metaborg.spoofax.core.stratego.StrategoRuntimeService;
-import org.metaborg.spoofax.core.stratego.primitives.DummyPrimitive;
-import org.metaborg.spoofax.core.stratego.primitives.ParseFilePrimitive;
-import org.metaborg.spoofax.core.stratego.primitives.ParseFilePtPrimitive;
-import org.metaborg.spoofax.core.stratego.primitives.ProjectPathPrimitive;
-import org.metaborg.spoofax.core.stratego.primitives.SpoofaxJSGLRLibrary;
-import org.metaborg.spoofax.core.stratego.primitives.SpoofaxPrimitiveLibrary;
+import org.metaborg.spoofax.core.stratego.primitives.*;
 import org.metaborg.spoofax.core.stratego.strategies.ParseFileStrategy;
 import org.metaborg.spoofax.core.stratego.strategies.ParseStrategoFileStrategy;
 import org.metaborg.spoofax.core.style.CategorizerService;
@@ -176,6 +171,7 @@ public class SpoofaxModule extends AbstractModule {
         final Multibinder<AbstractPrimitive> spoofaxPrimitiveLibrary =
             Multibinder.newSetBinder(binder(), AbstractPrimitive.class, Names.named("SpoofaxPrimitiveLibrary"));
         bindPrimitive(spoofaxPrimitiveLibrary, ProjectPathPrimitive.class);
+        bindPrimitive(spoofaxPrimitiveLibrary, ForeignCallPrimitive.class);
         bindPrimitive(spoofaxPrimitiveLibrary, new DummyPrimitive("SSL_EXT_set_total_work_units", 0, 0));
         bindPrimitive(spoofaxPrimitiveLibrary, new DummyPrimitive("SSL_EXT_set_markers", 0, 1));
         bindPrimitive(spoofaxPrimitiveLibrary, new DummyPrimitive("SSL_EXT_refreshresource", 0, 1));
